@@ -4,6 +4,12 @@
 
 ```bash
 
+export HISTSIZE=10000
+export HISTFILESIZE=20000
+export HISTTIMEFORMAT="%F %T "
+
+history
+
  
 ```
 
@@ -16,6 +22,17 @@ history
 2. Configura estos cambios para que sean permantentes
 ```bash
 
+#Abrir el archivo de configuración
+nano ~/.bashrc
+
+# Configuración del historial con fecha y hora
+export HISTSIZE=1000
+export HISTFILESIZE=20000
+export HISTTIMEFORMAT="%F %T "
+
+#Recargar la configuración sin cerrar sesión
+source ~/.bashrc
+
 ```
 
 ---
@@ -25,28 +42,39 @@ history
 1. Muestra toda la información de tu sistema operativo y kernel.
 ```bash
 
+uname -a
+
 ```
     
 2. Averigua únicamente la versión del kernel.
 ```bash
+
+uname -r
 
 ```
     
 3. Comprueba el espacio en disco disponible.
 ```bash
 
+df -h
+
 ```
     
 4. Calcula cuánto espacio ocupa la carpeta `/etc`.
 ```bash
 
+du -sh /etc
+
+# etc --> Carpeta donde se almacenan las configuraciones del sistema.
+
 ```
     
 5. Consulta la memoria RAM disponible y usada.
 ```bash
+free -h
 
-```
-    
+#Free --> Sirve para que sea en lenguaje humano.
+```	
 
 ---
 
@@ -55,41 +83,70 @@ history
 6. Lanza un monitor de procesos en tiempo real y observa:
 ```bash
 
+ps aux  #Ver todos los procesos que existen en ese momento, con su PID, usuario, uso de CPU/memoria, estado, etc.
+# o
+top     # Monitorizar en tiempo real el uso de CPU, memoria, carga del sistema y procesos.
+#o
+htop    # Es como top pero permite desplazamiento horizontal/vertical, búsqueda, filtrado y acciones con teclas de función y tiene una interfaz colorida.
+
+#Para salir  se hace F10 = QUIT --> Fn + F10
+
 ```
     
-- Número total de procesos.
+- Número total de procesos.  ->  48
 	
-- Cuál consume más CPU.
+- Cuál consume más CPU.   ->  1361
 	
-- Sal del programa.
+- Sal del programa.  ->  q / ctrl + c / F10 = QUIT --> Fn + F10
         
 7. Instala y ejecuta una versión mejorada del monitor de procesos y compárala con la anterior.
 ```bash
+
+sudo apt update
+sudo apt install htop
+
+#Muestra mucha más información y da más funcionalidades para navegar por la interfaz.
 
 ```
     
 8. Obtén un listado de todos los procesos del sistema y localiza el proceso de tu shell.
 ```bash
 
+ps -lax
+# -l listado
+# -a ocultos
+# -x procesos del usuario actual.
+
 ```
     
 9. Muestra la jerarquía de procesos en forma de árbol.
 ```bash
-
+pstree
 ```
     
 10. Lanza el comando `ping` contra `google.com` en segundo plano (&) y obtén su identificador de proceso (PID).
 ```bash
+ping google.com&
+#Estoy mandadndo el proceso a segundo plano a la vez que lo ejecuto.
+
+Ctrl + Z --> Suspende el proceso actual
+bg --> Lo enviamos al fondo.
+jobs -l --> Comprobamos el PID
+kill 4567 --> Matamas el ping ya que tiene ese PID asignado.
 
 ```
     
 11. Finaliza el proceso de Firefox usando su PID.
 ```bash
+ps aux | grep firefox
 
 ```
     
 12. Vuelve a lanzarlo y esta vez deténlo, luego reactívalo.
 ```bash
+firefox & -->  Lanzar Firefox en segundo plano
+kill -STOP 5678 -->  Detener el proceso (pausar)
+kill -CONT 5678 -->  Reanudar el proceso
 
 ```
     
@@ -105,16 +162,28 @@ history
 
 14. Consulta el estado del servicio de conexión remota (por ejemplo, `ssh`).
 ```bash
+systemctl status ssh
+#Muestra si el servicio ssh está activo y su PID.
 
 ```
     
 15. Inicia dicho servicio si está instalado.
 ```bash
+#Si esta instalado asi:
+sudo systemctl start ssh
+
+#Si no esta instalado asi:
+sudo apt update
+sudo apt install openssh-server
+sudo systemctl start ssh
 
 ```
     
 16. Desactívalo del arranque automático y vuelve a activarlo.
 ```bash
+
+sudo systemctl disable ssh #--> Desactivo
+sudo systemctl enable ssh #--> Activo
 
 ```
     
@@ -125,31 +194,43 @@ history
 
 17. Lista todos los archivos, incluidos los ocultos, en tu directorio personal.
 ```bash
+cd ~
+ls -la ~
+
+#Nos vamos al home y luego ejecutamos ls -la ~
 
 ```
     
 18. Crea una carpeta llamada `prueba`.
 ```bash
+mkdir ~/prueba
+
+#Crea la carpeta directamente dentro de tu directorio personal.
 
 ```
     
 19. Dentro de esa carpeta, crea un archivo `notas.txt` que contenga el texto “Hola Linux”.
 ```bash
 
+echo "Hola Linux" > ~/prueba/notas.txt
+
+#Redireccionamos Hola linux un archivo llamado notas.txt dentro de prueba
+
 ```
     
 20. Copia ese archivo con otro nombre.
 ```bash
-
+cp ~/prueba/notas.txt ~/prueba/notas_copia.txt
 ```
     
 21. Renombra el archivo copiado.
 ```bash
-
+mv ~/prueba/notas_copia.txt ~/prueba/notas_renombrado.txt
 ```
     
 22. Borra el archivo renombrado.
 ```bash
+rm ~/prueba/notas_renombrado.txt
 
 ```
     
