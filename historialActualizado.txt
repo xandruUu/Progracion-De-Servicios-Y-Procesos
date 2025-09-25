@@ -1,0 +1,105 @@
+shutdown shutshutdown 0
+shutdown 0
+#1758184652
+1 historial
+#1758184656
+historial 1
+#1758184659
+historial 2
+#1758184865
+~/.bashrc
+#1758184951
+ls -la~
+#1758184957
+ls -la
+#1758185154
+ls -a ~/.bashrc
+#1758185823
+export HISTSIZE=10000
+#1758185849
+exposrt HISTSIZEFILESIZE=20000
+#1758185868
+export HISTFILESIZE=20000
+#1758185949
+export HISTTIMEFORMAT=%F %T "
+
+
+
+
+
+#1758186057
+export HISTTIMEFORMAT="%F %T "
+#1758186063
+history
+#1758186114
+ls
+#1758186292
+nano ~/.bashrc
+#1758186565
+clear
+#1758186567
+history
+#1758186576
+uname -a
+#1758186580
+uname -r
+#1758186591
+df -h
+#1758186674
+du --help
+#1758186788
+man du
+#1758186887
+sudo du -sh /etc
+#1758186911
+free -h
+#1758189045
+ps aunx
+#1758189209
+htop
+#1758189288
+clear
+#1758189702
+history
+#1758190020
+htop
+#1758190285
+clear
+#1758190323
+top
+#1758190383
+clear
+#1758190496
+htop -t
+#1758190557
+clear
+#1758190603
+p pid 1361
+#1758190611
+pp id 1361
+#1758190638
+ppid 1361
+#1758190686
+clear
+#1758191008
+p -lax | grep tty
+#1758191018
+ps -lax | grep tty
+#1758191026
+ps -lax | grep bash
+#1758191451
+jobs
+#1758192136
+shutdown
+#1758192155
+shutdown 0
+CLEAR
+clear
+shutdown 0
+mkfifo mituberia
+lll
+echo "hola" > mituberia 
+tty
+ll > mituberia 
+shutdown 0
+cat < mituberia 
