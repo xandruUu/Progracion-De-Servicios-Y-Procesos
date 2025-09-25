@@ -288,11 +288,18 @@ mkfifo cola
     
 29. Desde una terminal, deja el archivo `cola` en espera de datos. Desde otra terminal, escribe un mensaje en esa tubería.
 ```bash
+tty1 -->
+cat cola
+
+tty2 -->
+echo hola caracola > cola
 
 ```
     
 30. Verifica que `cola` es realmente una tubería.
 ```bash
+
+ls -l cola
 
 ```
     
@@ -359,37 +366,51 @@ ssh xandru14@ip_DE_MI_MAQUINA
     
 38. Copia un archivo desde tu máquina a otra mediante una conexión remota segura.
 ```bash
+scp -P 2222 xandru14@127.0.0.1:~/.bash_history ./historial_ubuntu.txt
 
 ```
-scp -P 2222 xandru14@127.0.0.1:~/.bash_history ./historial_ubuntu.txt
     
 
 ---
 
 ## **Bloque 8: Usuarios y permisos**
+### Lo hacemos con permisos de superusuario ( sudo )
 
 39. Crea un usuario de prueba llamado `alumno1`.
 ```bash
-
+sudo adduser alumno1
 ```
     
 40. Cámbiale la contraseña.
 ```bash
+
+sudo passwd alumno1 -->
+
+Enter new UNIX password: 12345
+Retype new UNIX password: 12345
+passwd: password updated successfully
+
+
 
 ```
     
 41. Cambia los permisos de un archivo a `755`.
 ```bash
 
+chmod 755 archivo.txt
+
 ```
     
 42. Cambia el propietario de un archivo a otro usuario.
 ```bash
+sudo chown usuario2 archivo.txt
 
 ```
     
 43. Elimina el usuario creado.
 ```bash
+
+sudo deluser alumno1
 
 ```
     
