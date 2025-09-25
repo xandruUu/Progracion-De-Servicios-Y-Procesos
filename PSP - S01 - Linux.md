@@ -241,11 +241,16 @@ rm ~/prueba/notas_renombrado.txt
 
 23. Redirige la salida de un listado de archivos a un archivo llamado `listado.txt`.
 ```bash
+ls > listado.txt
+
+#La salida de ls se redirije al archivo y se reescribe si ya existe.
 
 ```
     
 24. Añade una nueva línea al final del mismo archivo con el texto "Fin del listado".
 ```bash
+echo "Fin del listado" >> listado.txt
+#Agrega el texto al final sin sobreescribir.
 
 ```
     
@@ -256,11 +261,18 @@ rm ~/prueba/notas_renombrado.txt
     
 26. Filtra de una lista de procesos únicamente aquellos que contengan la palabra “bash”.
 ```bash
+ps aux | grep bash
+
+#Filtran por lo procesos que contengan "bash"
 
 ```
     
 27. Muestra solo las últimas 5 líneas del archivo `listado.txt`.
+    
 ```bash
+tail -n 5 listado.txt
+
+#Muestra las ultimas lineas dle archivo en este caso las ultimas 5.
 
 ```
     
@@ -296,31 +308,47 @@ rm ~/prueba/notas_renombrado.txt
 
 32. Comprueba la conectividad con el servidor `google.com` enviando unos pocos paquetes.
 ```bash
+ping -c 4 google.com
+
+#Hace ping con solamente 4 paquetes.
 
 ```
     
 33. Muestra la configuración de tus interfaces de red.
 ```bash
+ip a
+
 
 ```
     
 34. Revisa qué puertos están en escucha en tu máquina.
 ```bash
+ss -tuln
+
+#Muestra la lista puertos TCP/UDP abiertos.
 
 ```
     
 35. Consulta la dirección IP asociada al dominio `google.com`.
 ```bash
+host google.com
+
 
 ```
     
 36. Realiza la misma consulta de resolución DNS usando otra herramienta distinta.
 ```bash
 
+dig google.com
+
+
 ```
     
 37. Conéctate de forma remota a otra máquina mediante un protocolo seguro (si tienes acceso).
 ```bash
+
+ssh xandru14@ip_DE_MI_MAQUINA
+
 
 ```
     
@@ -328,6 +356,7 @@ rm ~/prueba/notas_renombrado.txt
 ```bash
 
 ```
+scp -P 2222 xandru14@127.0.0.1:~/.bash_history ./historial_ubuntu.txt
     
 
 ---
